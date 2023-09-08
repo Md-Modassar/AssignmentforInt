@@ -20,8 +20,8 @@ exports.createUser = async (req, res) => {
   try {
     const data = req.body;
     const { Name, Email, Mobile, Password } = data
-
-    data.Profile_picture = req.files[0].originalname;
+    data.Profile_picture = req.files[0].originalname ;
+    
     if (!Name) {
       return res.status(400).send({ status: false, message: "Please enter Name" })
     }
@@ -95,7 +95,6 @@ exports.updateUser = async (req, res) => {
     const data = req.body;
     const { Name, Email, Mobile, Password } = data
     const userid = req.params.userId
-    console.log(userid)
     if (!objectid.isValid(userid)) {
       return res.status(400).send({ status: false, message: "Please enter valid userid" })
     }
